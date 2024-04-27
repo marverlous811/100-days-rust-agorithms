@@ -16,4 +16,12 @@ impl TreeNode {
       right: None,
     }
   }
+
+  pub fn new_with_children(
+    val: i32,
+    left: Option<Rc<RefCell<TreeNode>>>,
+    right: Option<Rc<RefCell<TreeNode>>>,
+  ) -> Self {
+    Self { val, left, right }
+  }
 }
