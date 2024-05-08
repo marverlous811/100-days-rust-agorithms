@@ -9,6 +9,10 @@ impl ListNode {
     ListNode { val, next: None }
   }
 
+  pub fn new_with_next(val: i32, next: Option<Box<ListNode>>) -> Self {
+    ListNode { val, next }
+  }
+
   pub fn from_vec(vals: Vec<i32>) -> Option<Box<ListNode>> {
     if vals.is_empty() {
       return None;
@@ -20,6 +24,10 @@ impl ListNode {
       current = current.next.as_mut().unwrap();
     }
     Some(head)
+  }
+
+  pub fn add_node(&mut self, node: Option<Box<ListNode>>) {
+    self.next = node;
   }
 
   pub fn to_vec(&self) -> Vec<i32> {
