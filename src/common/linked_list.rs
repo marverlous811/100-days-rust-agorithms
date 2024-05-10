@@ -30,4 +30,11 @@ impl LinkedListNode {
       Some(head)
     }
   }
+
+  pub fn to_vec(&self, acc: &mut Vec<i32>) {
+    acc.push(self.val);
+    if let Some(next) = &self.next {
+      next.borrow().to_vec(acc);
+    }
+  }
 }
