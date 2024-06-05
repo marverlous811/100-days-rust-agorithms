@@ -34,6 +34,7 @@ mod day_37;
 mod day_38;
 mod day_39;
 mod day_4;
+mod day_40;
 mod day_5;
 mod day_6;
 mod day_7;
