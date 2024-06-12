@@ -1,28 +1,3 @@
-pub fn num_squares_down(n: i32, cache: &mut Vec<i32>) -> i32 {
-  if n == 0 {
-    return 0;
-  }
-
-  if n == 1 {
-    return 1;
-  }
-
-  let max = (n as f32).sqrt().floor() as i32;
-  let mut retval = i32::MAX;
-  for i in 1..=max {
-    let square = if cache[i as usize - 1] == -1 {
-      let square: i32 = i * i;
-      cache[i as usize - 1] = square;
-      square
-    } else {
-      cache[i as usize - 1]
-    };
-    retval = retval.min(1 + num_squares_down(n - square, cache));
-  }
-
-  retval
-}
-
 pub fn num_squares(n: i32) -> i32 {
   let mut dp = vec![n; n as usize + 1];
   dp[0] = 0;
